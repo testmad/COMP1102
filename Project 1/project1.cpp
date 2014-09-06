@@ -6,6 +6,7 @@ Due:		09-17-2014
 */
 
 #include <iostream.h>
+#include <stdio.h>
 #include <math.h>
 
 void clear() {
