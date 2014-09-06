@@ -8,6 +8,11 @@ Due:		09-17-2014
 #include <iostream.h>
 #include <math.h>
 
+void clear() {
+    // CSI[2J clears screen, CSI[H moves the cursor to top-left corner
+    std::cout << "\x1B[2J\x1B[H";
+}
+
 int main(void)
 {
 
@@ -15,9 +20,4 @@ int main(void)
 	cout << "Please press enter.";
 	cin.get();
 	return 0;
-}
-
-void clear() {
-    // CSI[2J clears screen, CSI[H moves the cursor to top-left corner
-    std::cout << "\x1B[2J\x1B[H";
 }
