@@ -49,35 +49,25 @@ int main( int argc, char* argv[] )
 	bool exact;
 	string arg;
 	
-	exact = 0;
+	exact = false;
 	
 	if(argc != 1)
 	{
-//	}
-//	else
-//	{
 		arg = argv[1];
 		if((arg == "-e") || (arg == "--exact"))
 		{
-			exact = 1;
+			exact = true;
 		}
 	}
 
-	//cout << string( 100, '\n' );
 	system("cls");
 
 	while(true)
 	{
-	input = "";
-	numA = 0;
-	numB = 0;
-	numC = 0;
-	
-	//problem1 = 0;
-	//problem2 = 0;
-	//problem3a = 0;
-	//problem3b = 0;
-	//problem3c = 0;
+		input = "";
+		numA = 0;
+		numB = 0;
+		numC = 0;
 	
 		while(true)
 		{
@@ -157,10 +147,8 @@ int main( int argc, char* argv[] )
 			cout << "Please enter a valid number." << endl;
 		}
 	
-		cout << endl;
-		cout << "You entered " << numA << " " << numB << " " << numC << endl;
-		
-		
+		//cout << endl;
+		//cout << "You entered " << numA << " " << numB << " " << numC << endl;
 		
 		problem1 = ((4 * (numC)) + (sqrt(30 - (2 * (numA)) ))) / ((3 * (numB))+(numC));
 		
@@ -170,7 +158,6 @@ int main( int argc, char* argv[] )
 		
 		problem3b = 30 - (2 * (numA));
 		
-		//if(problem3b % 1 == 0)
 		if(modf(problem3b, &problem3b_intPart) == 0.0)
 		{
 			problem3b_outsideRoot = 1;
@@ -188,10 +175,8 @@ int main( int argc, char* argv[] )
 					d = d + 1;
 				}
 			}
-			
-			
-			cout << problem3b_insideRoot << endl;
-			cout << problem3b_outsideRoot << endl;
+			//cout << problem3b_insideRoot << endl;
+			//cout << problem3b_outsideRoot << endl;
 		}
 		else
 		{
