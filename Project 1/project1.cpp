@@ -46,17 +46,28 @@ int main( int argc, char* argv[] )
 	int d;
 	double problem3c;
 	double problem3c_intPart;
-	bool exact;
 	string arg;
+	bool disableVerbose;
+	bool disableExact;
+
 	
-	exact = false;
+	if( argc < 1 )
+		return 1;
 	
-	if(argc != 1)
+	for( int i = 1; i < argc; i++)
 	{
-		arg = argv[1];
-		if((arg == "-e") || (arg == "--exact"))
+		string arg = argv[i];
+		if ( ( arg == "-v") || (arg == "--verbose") )
 		{
-			exact = true;
+			disableVerbose = false;
+		}
+		else if ( ( arg == "-e") || (arg == "--exact") )
+		{
+			disableExact = false;
+		}
+		else
+		{
+			
 		}
 	}
 
@@ -153,37 +164,16 @@ int main( int argc, char* argv[] )
 		problem1 = ((4 * (numC)) + (sqrt(30 - (2 * (numA)) ))) / ((3 * (numB))+(numC));
 		
 		problem2 = ((4 * (numC)) - (sqrt(30 - (2 * (numA)) ))) / ((3 * (numB))+(numC));
-		
-		problem3a = 4 * (numC);
-		
-		problem3b = 30 - (2 * (numA));
-		
-		if(modf(problem3b, &problem3b_intPart) == 0.0)
+
+		if(!disableVerbose)
 		{
-			problem3b_outsideRoot = 1;
-			problem3b_insideRoot = problem3b;
-			d = 2;
-			while(d * d <= problem3b_insideRoot)
-			{
-				if(problem3b_insideRoot % (d * d) == 0)
-				{
-					problem3b_insideRoot = problem3b_insideRoot / (d * d);
-					problem3b_outsideRoot = problem3b_outsideRoot * d;
-				}
-				else
-				{
-					d = d + 1;
-				}
-			}
-			//cout << problem3b_insideRoot << endl;
-			//cout << problem3b_outsideRoot << endl;
+			cout << endl;
+			cout << "Problem:" << endl;
+			cout << "                4c" << "\xF1\xFB" << "30-2a" << endl;
+			cout << "           x = \xC4\xC4\xC4\xC4\xC4\xC4\xC4\xC4\xC4\xC4\xC4" << endl;
+			cout << "                  3b+c" << endl;
+			
 		}
-		else
-		{
-			problem3b_outsideRoot = 1;
-		}
-		
-		problem3c = (3 * (numB))+(numC);
 		
 		if(problem1 == 0 && problem2 == 0)
 		{
@@ -198,12 +188,44 @@ int main( int argc, char* argv[] )
 			cout << "Decimal approximations:" << endl;
 			cout << endl;
 			cout << "                        x = " << problem1 << endl;
-			cout << endl;
+			cout << "                             OR" << endl;
 			cout << "                        x = " << problem2 << endl;
 			cout << endl;
 		}
-		if(exact)
+		if(!disableExact)
 		{
+				
+			problem3a = 4 * (numC);
+		
+			problem3b = 30 - (2 * (numA));
+			
+			if(modf(problem3b, &problem3b_intPart) == 0.0)
+			{
+				problem3b_outsideRoot = 1;
+				problem3b_insideRoot = problem3b;
+				d = 2;
+				while(d * d <= problem3b_insideRoot)
+				{
+					if(problem3b_insideRoot % (d * d) == 0)
+					{
+						problem3b_insideRoot = problem3b_insideRoot / (d * d);
+						problem3b_outsideRoot = problem3b_outsideRoot * d;
+					}
+					else
+					{
+						d = d + 1;
+					}
+				}
+				//cout << problem3b_insideRoot << endl;
+				//cout << problem3b_outsideRoot << endl;
+			}
+			else
+			{
+				problem3b_outsideRoot = 1;
+			}
+			
+			problem3c = (3 * (numB))+(numC);
+			
 			if(problem3c < 0)
 			{
 				cout << "Exact result:" << endl;
