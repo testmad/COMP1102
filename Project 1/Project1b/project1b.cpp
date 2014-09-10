@@ -5,23 +5,6 @@ Comp-1102 Project 1
 Assigned: 	09-05-2014
 Due:		09-17-2014
 
-I'm aware of a few instances where user input could cause a problem.  Such as 
-providing a letter instead of a number, pressing a function key, spaces, or 
-giving no input at all by pressing Enter.
-
-Making use of getline and stringstream allows me to pull the users input as a
-string including unwanted input and safely convert to an integer or request
-a new number.
-
-In order to make sure that all coefficients are truly valid
-in the context of the problem, I am splitting the problem into smaller
-pieces so that I can check for error producing input during execution.
-
-I will make extensive use of () to make sure the problem is solved properly.
-
-1) 30 - (2 * a)
-2) (3 * b) + c
-
 */
 
 #include <iostream.h>
@@ -72,6 +55,9 @@ int main( int argc, char* argv[] )
 	}
 
 	system("cls");
+	
+	disableVerbose = true;
+	disableExact = true;
 
 	while(true)
 	{
@@ -146,10 +132,10 @@ int main( int argc, char* argv[] )
 			
 			stringstream aStream(input);
 			if (aStream >> numC)
-				if(numB == 0 && numC == 0)
+				if(((3 * (numB))+(numC)) == 0)
 				{
 					cout << endl;
-					cout << "Coefficient c cannot be 0 since coefficient b is 0.\nThis would result in trying to divide by 0." << endl;
+					cout << "Coefficient c cannot be " << numC << " since coefficient b is " << numB << ".\nThis would result in trying to divide by 0." << endl;
 					continue;
 				}
 				else
