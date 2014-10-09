@@ -52,8 +52,6 @@ int main()
 			cout << endl;
 		}
 		cout << endl;
-		totalA = 0;
-		totalB = 0;
 		cout << "Input coefficient: ";
 		cin >> a;
 	}
