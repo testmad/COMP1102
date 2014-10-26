@@ -31,26 +31,18 @@ int main(void)
     cin >> elapsedMinutes;
     cout << endl;
     
-    cout << startHours << ":" << startMinutes << endl;
-    cout << elapsedMinutes << endl;
-    
     newHours = ((startMinutes + elapsedMinutes)/60 + startHours)%24;
-    
     newMinutes = (startMinutes + elapsedMinutes)%60;
-    
     if(newHours >= 12)
        {
             if(newHours > 12)
                 newHours = newHours - 12;
-
             cout << setw(2) << setfill('0') << newHours << ":" << setw(2) << setfill('0') << newMinutes << " P.M."<< endl;
        }
     else
        {
             if(newHours == 0)
                 newHours = 12;
-        
-            cout << setw(2) << setfill('0') << newHours << ":" << setw(2) << setfill('0') << newMinutes << " A.M."<< endl;
+             cout << setw(2) << setfill('0') << newHours << ":" << setw(2) << setfill('0') << newMinutes << " A.M."<< endl;
        }
-    
 }
