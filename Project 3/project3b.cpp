@@ -48,7 +48,7 @@ int main(void)
         if(currentStock <= minimumStock)
         {
             recordNumber++;
-            cout << setw(5) << setfill(' ') << recordNumber << "    " << setw(6) << stockNumber << "    " << setw(12) << stockDescription << "    " << setw(5) << setfill('0') << fixed << setprecision(2) << showpoint << maximumStock-currentStock << endl;
+            cout << setw(5) << setfill(' ') << recordNumber << "    " << setw(6) << stockNumber << "    " << setw(12) << stockDescription << "    " << setw(5) << fixed << setprecision(2) << showpoint << maximumStock-currentStock << endl;
         }
     }
     inventoryDataFile.close();
