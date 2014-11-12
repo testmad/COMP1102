@@ -46,6 +46,8 @@ int main(void)
         cout << setw(6) << fixed << setprecision(2) << showpoint << devForRecord( studentGrades, numGrades ) << endl;
         recordNumber++;
     }
+    
+    gradeDataFile.close();
 }
 
 void getFileName( char fileName[] )
