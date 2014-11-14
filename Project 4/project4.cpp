@@ -53,22 +53,32 @@ int main(void)
 void getFileName( char fileName[] )
 {
     bool notValid = true;
+    bool haveFileName = false;
+    bool haveFileExtension = false;
 
     while(notValid)
-    {    
-        cout << "Enter filename: ";
-        cin.getline(fileName, FILENAME_SIZE, '\n');
-        cout << endl;
-        
-        if(fileName[0] == '\0')
+    {   
+        if(!haveFileName || !haveFileExtension)
         {
-            cout << "No filename provided." << endl;
-            continue;
-        }
-        else if(strstr(fileName, ".") == 0)
-        {
-            cout << "No file extension provided." << endl;
-            continue;
+            cout << "Enter filename: ";
+            cin.getline(fileName, FILENAME_SIZE, '\n');
+            cout << endl;
+            
+            if(fileName[0] == '\0')
+            {
+                cout << "No filename provided." << endl;
+                haveFileName = false;
+            }
+            else if(strstr(fileName, ".") == 0)
+            {
+                cout << "No file extension provided." << endl;
+                haveFileExtension = false;
+            }
+            else
+            {
+                haveFileName = true;
+                haveFileExtension = true;
+            }
         }
         else
         {
